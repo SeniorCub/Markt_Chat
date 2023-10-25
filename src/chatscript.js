@@ -4,6 +4,10 @@ const chatSpace = document.querySelector(".chat-space")
 let selectedchat = undefined
 
 window.addEventListener("load",()=>{
+    //Add socketio events as needed corresponding to how it is on the server side
+    const socket = io.connect(`http://` );
+    
+
     check_chat_status()
     const chatList = document.querySelector(".chats-list")
     const chatMessages = document.querySelector(".chat-messages")
@@ -143,7 +147,7 @@ function handle_image_uploads(){
     }
     chatMessages.scrollBy(0,chatMessages.scrollHeight)
 }
-
+//this is another function that depends on how the data from the socketio events would look like
 function handle_incoming_messages(incoming_message){}
 
 //PS: These values are just for tests, please remove them incase you want to get the socketio stuff set
