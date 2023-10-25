@@ -8,9 +8,11 @@ window.addEventListener("load",()=>{
     const chatList = document.querySelector(".chats-list")
     const chatMessages = document.querySelector(".chat-messages")
     chats.forEach((chat)=>{
+        //Add the chats list inbox
         let newchatelem = document.createElement("li")
         newchatelem.classList.add("spec-chat")
         newchatelem.addEventListener("click",()=>{
+            //selected chat is the chat the user is currently looking at
             selectedchat = chat
             chatMessages.replaceChildren("")
             check_chat_status()
@@ -19,6 +21,7 @@ window.addEventListener("load",()=>{
             const statusText = document.querySelector(".status-text")
             const statusColor = document.querySelector(".status-color")
 
+            //change the status and username and profile image to that of the selectedchat
             userName.innerHTML = selectedchat.user_name
             statusText.innerHTML = selectedchat.status
             if(selectedchat.status === "online"){
@@ -28,6 +31,7 @@ window.addEventListener("load",()=>{
                 statusColor.style.backgroundColor = "darkgray"
             }
 
+            //display all messages of selected chat
             selectedchat.messages.forEach((message)=>{
                 let messagecont = document.createElement("div")
                 let messagebubble = document.createElement("div")
@@ -45,6 +49,7 @@ window.addEventListener("load",()=>{
                 messagecont.appendChild(messagebubble)
 
                 chatMessages.appendChild(messagecont)
+                chatMessages.scrollBy(0,chatMessages.scrollHeight)
             })
         })
 
@@ -69,8 +74,6 @@ window.addEventListener("load",()=>{
     })
 })
 
-window.addEventListener("resize",()=>{})
-
 function check_chat_status(){
     let noMessagesSpace = document.querySelector(".no-messages-space")
     let chatMessagesSpace = document.querySelector(".chat-messages-space")
@@ -93,36 +96,57 @@ function cutstr(str){
 function remove_selected_chat(){
     selectedchat = undefined
     check_chat_status()
+    const userName = document.querySelector(".user-name")
+    const statusText = document.querySelector(".status-text")
+    const statusColor = document.querySelector(".status-color")
+
+    userName.innerHTML = ""
+    statusText.innerHTML = ""
+    statusColor.style.backgroundColor = "darkgray"
 }
 
 function send_message(){
     const chatMessages = document.querySelector(".chat-messages")
     let chatInput = document.querySelector(".chat-input")
-    let text = chatInput.innerHTML
+    let text = chatInput.value
     if(text){
         selectedchat.messages.push(
             {sent_to:selectedchat.user_id,sent_from:"you",status:"unread",
-            send_date_and_time:"00:04",message:text}
-            )
-            let messagecont = document.createElement("div")
-                let messagebubble = document.createElement("div")
+            send_date_and_time:"00:04",message:text})
+        let messagecont = document.createElement("div")
+        let messagebubble = document.createElement("div")
 
-                if(message.sent_from === "you"){
-                    messagecont.classList.add("sent-by-you")
-                    messagebubble.classList.add("bubble-sent-by-you")
-                }
-                if(message.sent_to === "you"){
-                    messagecont.classList.add("sent-by-other")
-                    messagebubble.classList.add("bubble-sent-by-other")
-                }
+        messagecont.classList.add("sent-by-you")
+        messagebubble.classList.add("bubble-sent-by-you")
 
-                messagebubble.innerHTML = text
-                messagecont.appendChild(messagebubble)
+        messagebubble.innerHTML = text
+        messagecont.appendChild(messagebubble)
 
-                chatMessages.appendChild(messagecont)
+        chatMessages.appendChild(messagecont)
+        chatMessages.scrollBy(0,chatMessages.scrollHeight)
+        chatInput.value = ""
     }
 }
 
+function handle_image_uploads(){
+    const chatMessages = document.querySelector(".chat-messages")
+    let chatImageUploader = document.querySelector("#chat-image")
+    for(i=0;i<chatImageUploader.files.length;i++){
+        let messagecont = document.createElement("div")
+        messagecont.classList.add("sent-by-you")
+
+        let image = document.createElement("img")
+        image.src = URL.createObjectURL(chatImageUploader.files[i])
+        image.classList.add("uploaded-images")
+        messagecont.appendChild(image)
+        chatMessages.appendChild(messagecont)
+    }
+    chatMessages.scrollBy(0,chatMessages.scrollHeight)
+}
+
+function handle_incoming_messages(incoming_message){}
+
+//PS: These values are just for tests, please remove them incase you want to get the socketio stuff set
 let chats = [{
     user_id:"john",user_name:"john",user_profile_image:"cdvnvhjhihnyhb",user_type:"buyer",status:"online",
     messages:[

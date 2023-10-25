@@ -122,29 +122,29 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
 #chat-image{
     display: none;
 }
-
 /* chat space and bubbles */
 .sent-by-you{
     display: flex;
     flex-direction: row-reverse;
+    width: 100%;
 }
 .bubble-sent-by-you{
     background-color: #cc5500;
     color: white;
-    border: hidden;
     border-bottom-right-radius: 0;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 10px;
 }
 .sent-by-other{
     display: flex;
+    width: 100%;
 }
 .bubble-sent-by-other{
     background-color: #ffece3;
     color: black;
-    border: hidden;
     border-bottom-left-radius: 0;
+}
+.bubble-sent-by-other,.bubble-sent-by-you{
+    max-width: 80%;
+    border: hidden;
     border-radius: 20px;
     margin: 10px;
     padding: 10px;

@@ -39,7 +39,8 @@
                 <span class="chat-input-container">
                     <textarea name="" class="chat-input" placeholder="Enter message"></textarea>
                     <label class="add-image" for="chat-image">upload</label>
-                    <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png">
+                    <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png"
+                    onchange="handle_image_uploads()" multiple>
                 </span>
                 <button onclick="send_message()">Send</button>
             </div>
