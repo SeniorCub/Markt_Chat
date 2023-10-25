@@ -10,12 +10,26 @@ window.addEventListener("load",()=>{
         newchatelem.classList.add("spec-chat")
         newchatelem.addEventListener("click",()=>{
             selectedchat = chat
+
+            let userName = document.querySelector(".user-name")
+            let statusText = document.querySelector(".status-text")
+            let statusColor = document.querySelector(".status-color")
+
+            userName.innerHTML = selectedchat.user_name
+            statusText.innerHTML = selectedchat.status
+            if(selectedchat.status === "online"){
+                statusColor.style.backgroundColor = "green"
+            }
+            else{
+                statusColor.style.backgroundColor = "darkgray"
+            }
         })
 
         let username = document.createElement("h1")
         username.innerHTML = chat.user_name
 
         let user_profile_image = document.createElement("img")
+        user_profile_image.classList.add("user-profile-image")
         user_profile_image.src = chat.user_profile_image
 
         let lastmessage = document.createElement("p")
@@ -35,7 +49,7 @@ window.addEventListener("resize",()=>{})
 function cutstr(str){
     if(str.length > 10)
         return str.slice(0,12)+"..."
-    return str+"..."
+    return str
 }
 
 let chats = [{

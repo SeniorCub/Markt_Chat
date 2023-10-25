@@ -28,8 +28,14 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
     display: flex;
     padding: 10px;
     box-sizing: border-box;
-    height: 30px;
+    height: max-content;
     border-bottom: solid thin #c5c5c5;
+}
+.user-profile-image{
+    border: hidden;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 .chat-space{
     width: 70%;
