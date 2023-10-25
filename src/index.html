@@ -15,11 +15,12 @@
             <h3>Chats</h3>
         </header>
         <ul class="chats-list">
-            
+
         </ul>
     </section>
     <section class="chat-space">
         <header class="chat-space-header">
+            <button onclick="remove_selected_chat()">Back</button>
             <img src="" class="profile-image" alt="" width="50" height="50">
             <div class="user-data">
                 <h1 class="user-name">Username</h1>
@@ -40,7 +41,7 @@
                     <label class="add-image" for="chat-image">upload</label>
                     <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png">
                 </span>
-                <button>Send</button>
+                <button onclick="send_message()">Send</button>
             </div>
         </div>
     </section>

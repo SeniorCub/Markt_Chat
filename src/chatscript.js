@@ -4,16 +4,20 @@ const chatSpace = document.querySelector(".chat-space")
 let selectedchat = undefined
 
 window.addEventListener("load",()=>{
+    check_chat_status()
     const chatList = document.querySelector(".chats-list")
+    const chatMessages = document.querySelector(".chat-messages")
     chats.forEach((chat)=>{
         let newchatelem = document.createElement("li")
         newchatelem.classList.add("spec-chat")
         newchatelem.addEventListener("click",()=>{
             selectedchat = chat
+            chatMessages.replaceChildren("")
+            check_chat_status()
 
-            let userName = document.querySelector(".user-name")
-            let statusText = document.querySelector(".status-text")
-            let statusColor = document.querySelector(".status-color")
+            const userName = document.querySelector(".user-name")
+            const statusText = document.querySelector(".status-text")
+            const statusColor = document.querySelector(".status-color")
 
             userName.innerHTML = selectedchat.user_name
             statusText.innerHTML = selectedchat.status
@@ -23,6 +27,25 @@ window.addEventListener("load",()=>{
             else{
                 statusColor.style.backgroundColor = "darkgray"
             }
+
+            selectedchat.messages.forEach((message)=>{
+                let messagecont = document.createElement("div")
+                let messagebubble = document.createElement("div")
+
+                if(message.sent_from === "you"){
+                    messagecont.classList.add("sent-by-you")
+                    messagebubble.classList.add("bubble-sent-by-you")
+                }
+                if(message.sent_to === "you"){
+                    messagecont.classList.add("sent-by-other")
+                    messagebubble.classList.add("bubble-sent-by-other")
+                }
+
+                messagebubble.innerHTML = message.message
+                messagecont.appendChild(messagebubble)
+
+                chatMessages.appendChild(messagecont)
+            })
         })
 
         let username = document.createElement("h1")
@@ -36,6 +59,7 @@ window.addEventListener("load",()=>{
         lastmessage.innerHTML = cutstr(chat.messages[chat.messages.length - 1].message)
 
         let userdetcont = document.createElement("div")
+        userdetcont.classList.add("user-det-cont")
         userdetcont.appendChild(username)
         userdetcont.appendChild(lastmessage)
 
@@ -44,12 +68,59 @@ window.addEventListener("load",()=>{
         chatList.appendChild(newchatelem)
     })
 })
+
 window.addEventListener("resize",()=>{})
 
+function check_chat_status(){
+    let noMessagesSpace = document.querySelector(".no-messages-space")
+    let chatMessagesSpace = document.querySelector(".chat-messages-space")
+    if(selectedchat){
+        noMessagesSpace.style.display = "none"
+        chatMessagesSpace.style.display = "inline-block"
+    }
+    else{
+        noMessagesSpace.style.display = "flex"
+        chatMessagesSpace.style.display = "none"
+    }
+}
+
 function cutstr(str){
-    if(str.length > 10)
-        return str.slice(0,12)+"..."
+    if(str.length > 18)
+        return str.slice(0,21)+"..."
     return str
+}
+
+function remove_selected_chat(){
+    selectedchat = undefined
+    check_chat_status()
+}
+
+function send_message(){
+    const chatMessages = document.querySelector(".chat-messages")
+    let chatInput = document.querySelector(".chat-input")
+    let text = chatInput.innerHTML
+    if(text){
+        selectedchat.messages.push(
+            {sent_to:selectedchat.user_id,sent_from:"you",status:"unread",
+            send_date_and_time:"00:04",message:text}
+            )
+            let messagecont = document.createElement("div")
+                let messagebubble = document.createElement("div")
+
+                if(message.sent_from === "you"){
+                    messagecont.classList.add("sent-by-you")
+                    messagebubble.classList.add("bubble-sent-by-you")
+                }
+                if(message.sent_to === "you"){
+                    messagecont.classList.add("sent-by-other")
+                    messagebubble.classList.add("bubble-sent-by-other")
+                }
+
+                messagebubble.innerHTML = text
+                messagecont.appendChild(messagebubble)
+
+                chatMessages.appendChild(messagecont)
+    }
 }
 
 let chats = [{
@@ -59,11 +130,11 @@ let chats = [{
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"goat"},
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"bat"},
     ]
 },
 {
@@ -73,7 +144,7 @@ let chats = [{
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"courterrr"},
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},

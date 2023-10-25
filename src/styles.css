@@ -7,7 +7,6 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     margin: 0;
-
 }
 .all-messages,.chat-space{
     position: relative;
@@ -47,6 +46,9 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
     padding: 10px 20px 10px 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.user-det-cont{
+    padding-left: 10px;
+}
 .chat-space-header{
     display: flex;
     box-sizing: border-box;
@@ -74,10 +76,9 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    display: none;
 }
 .chat-messages-space{
-    display: inline-block;
+    display: none;
 }
 .chat-messages{
     height: 90%;
@@ -120,4 +121,31 @@ h1,h2,h3,h4,h5,h6,p,li,label,a,textarea{
 }
 #chat-image{
     display: none;
+}
+
+/* chat space and bubbles */
+.sent-by-you{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.bubble-sent-by-you{
+    background-color: #cc5500;
+    color: white;
+    border: hidden;
+    border-bottom-right-radius: 0;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+.sent-by-other{
+    display: flex;
+}
+.bubble-sent-by-other{
+    background-color: #ffece3;
+    color: black;
+    border: hidden;
+    border-bottom-left-radius: 0;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
 }
