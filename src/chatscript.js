@@ -14,7 +14,7 @@ window.addEventListener("load",()=>{
         newchatelem.addEventListener("click",()=>{
             //selected chat is the chat the user is currently looking at
             selectedchat = chat
-            chatMessages.replaceChildren("")
+            chatMessages.replaceChildren("") 
             check_chat_status()
 
             const userName = document.querySelector(".user-name")
