@@ -179,3 +179,15 @@ let chats = [{
         {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
     ]
 }]
+
+// Get a reference to the toggle button and the emoji tray
+const toggleButton = document.querySelector('#toggleEmojiTray');
+const emojiTray = document.querySelector('.emoji-tray');
+
+// Add a click event listener to the toggle button
+toggleButton.addEventListener('click', () => {
+    // Toggle the visibility of the emoji tray by adding/removing a 'visible' class
+     emojiTray.classList.toggle('visible');
+     alert("werey")
+     console.log("hello");
+});

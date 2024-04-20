@@ -24,6 +24,7 @@
         </ul>
     </section>
     <section class="chat-space">
+
         <header class="chat-space-header">
             <button onclick="remove_selected_chat()">Back</button>
             <img src="" class="profile-image" alt="" width="50" height="50">
@@ -35,28 +36,36 @@
                 </span>
             </div>
         </header>
+
         <div class="no-messages-space">
             <p>click on a chat to view</p>
         </div>
-        <div class="chat-messages-space">
-            <section class="chat-messages"></section>
-            <div class="chat-input-nav">
-                <span class="chat-input-container">
-                    <textarea name="" class="chat-input" placeholder="Enter message"></textarea>
-                    <label class="add-image" for="chat-image">upload</label>
-                    <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png"
-                    onchange="handle_image_uploads()" multiple>
-                </span>
-                <button onclick="send_message()">Send</button>
-            </div>
-        </div>
+
+          <div class="chat-messages-space">
+               <section class="chat-messages"></section>
+               <div class="chat-input-nav">
+                    <span class="chat-input-container">
+                         <div id="toggleEmojiTray">
+                              <i class="fa-regular fa-face-smile"></i>
+                         </div>
+                         <textarea name="" class="chat-input" placeholder="Enter message"></textarea>
+                         <label class="add-image" for="chat-image"><i class="fas fa-paperclip"></i></label>
+                         <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png"
+                         onchange="handle_image_uploads()" multiple>
+                    </span>
+                    <button onclick="send_message()">Send</button>
+               </div>
+               <div class="emoji-tray">
+                    <div class="emoji">😀</div>
+                    <div class="emoji">😍</div>
+                    <div class="emoji">😂</div>
+                    <div class="emoji">😎</div>
+                    <div class="emoji">😊</div>
+                    <div class="emoji">😜</div>
+                    <div class="emoji">😇</div>
+               </div>
+          </div>
     </section>
-    <!-- i dont unnderstand anything you are doing -->
-     <!-- Day 16 :-: I dont want to loose streak -->
-     <!-- Day 18 :-: I dont want to loose streak -->
-     <!-- Day 33 :-: I dont want to loose streak -->
-     <!-- Day 34 :-: I dont want to loose streak -->
-     <!-- Day 35 :-: I dont want to loose streak -->
-     <!-- Day 36 :-: I dont want to loose streak -->
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
 </body>
 </html> 
