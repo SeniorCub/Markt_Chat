@@ -43,19 +43,23 @@
 
           <div class="chat-messages-space">
                <section class="chat-messages"></section>
+               
                <div class="chat-input-nav">
                     <span class="chat-input-container">
                          <div id="toggleEmojiTray">
-                              <i class="fa-regular fa-face-smile"></i>
+                              <i class="fa-regular fa-face-smile"></i>😀
                          </div>
                          <textarea name="" class="chat-input" placeholder="Enter message"></textarea>
-                         <label class="add-image" for="chat-image"><i class="fas fa-paperclip"></i></label>
+                         <label class="add-image" for="chat-image"><i class="fas fa-paperclip"></i>A</label>
                          <input type="file" name="chat-image" id="chat-image" accept="image/jpeg,image/png"
-                         onchange="handle_image_uploads()" multiple>
+                         onchange="handle_image_uploads()" multiple> 
+                         <label class="add-camera" for="chat-camera"><i class="fas fa-paperclip"></i>C</label>
+                         <input type="file" name="chat-camera" id="chat-camera" accept="camera/jpeg,camera/png"
+                         onchange="handle_camera_uploads()" multiple> 
                     </span>
-                    <button onclick="send_message()">Send</button>
+                    <div class="sendMsg" onclick="send_message()">>></div>
                </div>
-               <div class="emoji-tray">
+               <div class="emoji-tray"  onclick="emoji_tray()">
                     <div class="emoji">😀</div>
                     <div class="emoji">😍</div>
                     <div class="emoji">😂</div>

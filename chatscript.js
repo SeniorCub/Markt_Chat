@@ -3,10 +3,34 @@ const chatSpace = document.querySelector(".chat-space")
 
 let selectedchat = undefined
 
+function emoji_tray() {
+     let cartmenu = document.querySelector('.emoji-tray');
+     let extended = cartmenu.style.display === "block";
+     cartmenu.style.display = extended ? "none" : "none";
+}
+
+function keyTyping() {
+     const statusText = document.querySelector(".status-text")
+     statusText.innerHTML=`Typing...`;
+}
+function keyTypingg() {
+     const statusText = document.querySelector(".status-text")
+     statusText.innerHTML=`online`;
+}
 window.addEventListener("load",()=>{
     //Add socketio events as needed corresponding to how it is on the server side
     const socket = io.connect(`http://` );
-    
+
+    document.querySelector(".chat-input").addEventListener("input",keyTyping)
+    document.querySelector(".chat-input").addEventListener("focusout",keyTypingg)
+
+     document.querySelector('.emoji-tray').style.display = "none";
+
+     document.querySelector('#toggleEmojiTray').addEventListener("click", () => {
+          let cartmenu = document.querySelector('.emoji-tray');
+          let extended = cartmenu.style.display === "grid";
+          cartmenu.style.display = extended ? "none" : "grid";
+     });
 
     check_chat_status()
     const chatList = document.querySelector(".chats-list")
@@ -18,11 +42,13 @@ window.addEventListener("load",()=>{
         newchatelem.addEventListener("click",()=>{
             //selected chat is the chat the user is currently looking at
             selectedchat = chat
+            
             chatMessages.replaceChildren("") 
             check_chat_status()
-
+            emoji_tray()
             const userName = document.querySelector(".user-name")
             const statusText = document.querySelector(".status-text")
+            const profile_image = document.querySelector(".profile-image").src = chat.user_profile_image
             const statusColor = document.querySelector(".status-color")
 
             //change the status and username and profile image to that of the selectedchat
@@ -71,7 +97,6 @@ window.addEventListener("load",()=>{
         userdetcont.classList.add("user-det-cont")
         userdetcont.appendChild(username)
         userdetcont.appendChild(lastmessage)
-
         newchatelem.appendChild(user_profile_image)
         newchatelem.appendChild(userdetcont)
         chatList.appendChild(newchatelem)
@@ -130,6 +155,8 @@ function send_message(){
         chatMessages.scrollBy(0,chatMessages.scrollHeight)
         chatInput.value = ""
     }
+    const statusText = document.querySelector(".status-text")
+    statusText.innerHTML=`Online`;
 }
 
 function handle_image_uploads(){
@@ -152,7 +179,7 @@ function handle_incoming_messages(incoming_message){}
 
 //PS: These values are just for tests, please remove them incase you want to get the socketio stuff set
 let chats = [{
-    user_id:"john",user_name:"john",user_profile_image:"cdvnvhjhihnyhb",user_type:"buyer",status:"online",
+    user_id:"john",user_name:"john",user_profile_image:"./Chat/avatar-angela-gray.webp",user_type:"buyer",status:"online",
     messages:[
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
@@ -166,7 +193,7 @@ let chats = [{
     ]
 },
 {
-    user_id:"maze",user_name:"maze",user_profile_image:"cdvnvhjhihnyhb",user_type:"buyer",status:"online",
+    user_id:"maze",user_name:"maze",user_profile_image:"./Chat/avatar-anna-kim.webp",user_type:"buyer",status:"online",
     messages:[
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
@@ -180,14 +207,3 @@ let chats = [{
     ]
 }]
 
-// Get a reference to the toggle button and the emoji tray
-const toggleButton = document.querySelector('#toggleEmojiTray');
-const emojiTray = document.querySelector('.emoji-tray');
-
-// Add a click event listener to the toggle button
-toggleButton.addEventListener('click', () => {
-    // Toggle the visibility of the emoji tray by adding/removing a 'visible' class
-     emojiTray.classList.toggle('visible');
-     alert("werey")
-     console.log("hello");
-});
