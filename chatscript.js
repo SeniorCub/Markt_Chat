@@ -195,15 +195,15 @@ let chats = [{
 {
     user_id:"maze",user_name:"maze",user_profile_image:"./Chat/avatar-anna-kim.webp",user_type:"buyer",status:"online",
     messages:[
-        {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"courterrr"},
-        {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"maze",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
-        {sent_to:"you",sent_from:"maze",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"john",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"john",status:"read",send_date_and_time:"00:04",message:"hello"},
     ]
 },
 {
