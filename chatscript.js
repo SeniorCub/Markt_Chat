@@ -219,5 +219,19 @@ let chats = [{
         {sent_to:"you",sent_from:"David",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"David",status:"read",send_date_and_time:"00:04",message:"hello"},
     ]
+},
+{
+    user_id:"Bayo",user_name:"Bayo",user_profile_image:"./Chat/avatar-anna-kim.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"Bayo",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"Bayo",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"Bayo",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"Bayo",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"Bayo",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"Bayo",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"Bayo",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"Bayo",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"Bayo",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
 }]
 
