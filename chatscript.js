@@ -233,5 +233,47 @@ let chats = [{
         {sent_to:"you",sent_from:"kimberly",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"kimberly",status:"read",send_date_and_time:"00:04",message:"hello"},
     ]
+},
+{
+    user_id:"mark",user_name:"mark",user_profile_image:"./Chat/avatar-mark-webber.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"mark",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"mark",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"mark",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"mark",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"mark",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"mark",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"mark",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"mark",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"mark",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"rizky",user_name:"rizky",user_profile_image:"./Chat/avatar-rizky-hasanuddin.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"rizky",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"rizky",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"rizky",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"rizky",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
 }]
 
