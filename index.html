@@ -42,7 +42,12 @@
         </div>
 
           <div class="chat-messages-space">
-               <section class="chat-messages"></section>
+               <section class="chat-messages">
+                    <div class="chat-image-container">
+                         <img src="" alt="" class="chat-image">
+                         <div class="close-image" onclick="close_image()">X</div>
+                    </div>
+               </section>
                
                <div class="chat-input-nav">
                     <span class="chat-input-container">
@@ -58,6 +63,8 @@
                     </span>
                     <div class="sendMsg" onclick="send_message()">>></div>
                </div>
+               
+               
                <div class="emoji-tray"  onclick="emoji_tray()">
                     <div class="emoji">😀</div>
                     <div class="emoji">😍</div>

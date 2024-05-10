@@ -17,91 +17,101 @@ function keyTypingg() {
      const statusText = document.querySelector(".status-text")
      statusText.innerHTML=`online`;
 }
-window.addEventListener("load",()=>{
-    //Add socketio events as needed corresponding to how it is on the server side
-    const socket = io.connect(`http://` );
-
-    document.querySelector(".chat-input").addEventListener("input",keyTyping)
-    document.querySelector(".chat-input").addEventListener("focusout",keyTypingg)
-
+window.addEventListener("load", () => {
+     // Add socketio events as needed corresponding to how it is on the server side
+     const socket = io.connect(`http://`);
+ 
+     document.querySelector(".chat-input").addEventListener("input", keyTyping);
+     document.querySelector(".chat-input").addEventListener("focusout", keyTypingg);
+ 
      document.querySelector('.emoji-tray').style.display = "none";
-
+ 
      document.querySelector('#toggleEmojiTray').addEventListener("click", () => {
-          let cartmenu = document.querySelector('.emoji-tray');
-          let extended = cartmenu.style.display === "grid";
-          cartmenu.style.display = extended ? "none" : "grid";
+         let cartmenu = document.querySelector('.emoji-tray');
+         let extended = cartmenu.style.display === "grid";
+         cartmenu.style.display = extended ? "none" : "grid";
      });
-
-    check_chat_status()
-    const chatList = document.querySelector(".chats-list")
-    const chatMessages = document.querySelector(".chat-messages")
-    chats.forEach((chat)=>{
-        //Add the chats list inbox
-        let newchatelem = document.createElement("li")
-        newchatelem.classList.add("spec-chat")
-        newchatelem.addEventListener("click",()=>{
-            //selected chat is the chat the user is currently looking at
-            selectedchat = chat
-            
-            chatMessages.replaceChildren("") 
-            check_chat_status()
-            emoji_tray()
-            const userName = document.querySelector(".user-name")
-            const statusText = document.querySelector(".status-text")
-            const profile_image = document.querySelector(".profile-image").src = chat.user_profile_image
-            const statusColor = document.querySelector(".status-color")
-
-            //change the status and username and profile image to that of the selectedchat
-            userName.innerHTML = selectedchat.user_name
-            statusText.innerHTML = selectedchat.status
-            if(selectedchat.status === "online"){
-                statusColor.style.backgroundColor = "green"
-            }
-            else{
-                statusColor.style.backgroundColor = "darkgray"
-            }
-
-            //display all messages of selected chat
-            selectedchat.messages.forEach((message)=>{
-                let messagecont = document.createElement("div")
-                let messagebubble = document.createElement("div")
-
-                if(message.sent_from === "you"){
-                    messagecont.classList.add("sent-by-you")
-                    messagebubble.classList.add("bubble-sent-by-you")
-                }
-                if(message.sent_to === "you"){
-                    messagecont.classList.add("sent-by-other")
-                    messagebubble.classList.add("bubble-sent-by-other")
-                }
-
-                messagebubble.innerHTML = message.message
-                messagecont.appendChild(messagebubble)
-
-                chatMessages.appendChild(messagecont)
-                chatMessages.scrollBy(0,chatMessages.scrollHeight)
-            })
-        })
-
-        let username = document.createElement("h1")
-        username.innerHTML = chat.user_name
-
-        let user_profile_image = document.createElement("img")
-        user_profile_image.classList.add("user-profile-image")
-        user_profile_image.src = chat.user_profile_image
-
-        let lastmessage = document.createElement("p")
-        lastmessage.innerHTML = cutstr(chat.messages[chat.messages.length - 1].message)
-
-        let userdetcont = document.createElement("div")
-        userdetcont.classList.add("user-det-cont")
-        userdetcont.appendChild(username)
-        userdetcont.appendChild(lastmessage)
-        newchatelem.appendChild(user_profile_image)
-        newchatelem.appendChild(userdetcont)
-        chatList.appendChild(newchatelem)
-    })
-})
+ 
+     check_chat_status();
+     const chatList = document.querySelector(".chats-list");
+     const chatMessages = document.querySelector(".chat-messages");
+     const chatSpace = document.querySelector(".chat-space");
+     const allMessages = document.querySelector(".all-messages");
+ 
+     chats.forEach((chat) => {
+         // Add the chats list inbox
+         let newchatelem = document.createElement("li");
+         newchatelem.classList.add("spec-chat");
+         newchatelem.addEventListener("click", () => {
+             // selected chat is the chat the user is currently looking at
+             selectedchat = chat;
+ 
+             chatMessages.replaceChildren("");
+             check_chat_status();
+             emoji_tray();
+             const userName = document.querySelector(".user-name");
+             const statusText = document.querySelector(".status-text");
+             const profile_image = document.querySelector(".profile-image").src = chat.user_profile_image;
+             const statusColor = document.querySelector(".status-color");
+ 
+             // change the status and username and profile image to that of the selected chat
+             userName.innerHTML = selectedchat.user_name;
+             statusText.innerHTML = selectedchat.status;
+             if (selectedchat.status === "online") {
+                 statusColor.style.backgroundColor = "green";
+             } else {
+                 statusColor.style.backgroundColor = "darkgray";
+             }
+ 
+             // display all messages of selected chat
+             selectedchat.messages.forEach((message) => {
+                 let messagecont = document.createElement("div");
+                 let messagebubble = document.createElement("div");
+ 
+                 if (message.sent_from === "you") {
+                     messagecont.classList.add("sent-by-you");
+                     messagebubble.classList.add("bubble-sent-by-you");
+                 }
+                 if (message.sent_to === "you") {
+                     messagecont.classList.add("sent-by-other");
+                     messagebubble.classList.add("bubble-sent-by-other");
+                 }
+ 
+                 messagebubble.innerHTML = message.message;
+                 messagecont.appendChild(messagebubble);
+ 
+                 chatMessages.appendChild(messagecont);
+                 chatMessages.scrollBy(0, chatMessages.scrollHeight);
+             });
+             
+             // When a chat is clicked, show .chat-space and hide .all-messages on small screens
+             if (window.innerWidth <= 500) {
+                 chatSpace.style.display = "block";
+                 allMessages.style.display = "none";
+             }
+         });
+ 
+         let username = document.createElement("h1");
+         username.innerHTML = chat.user_name;
+ 
+         let user_profile_image = document.createElement("img");
+         user_profile_image.classList.add("user-profile-image");
+         user_profile_image.src = chat.user_profile_image;
+ 
+         let lastmessage = document.createElement("p");
+         lastmessage.innerHTML = cutstr(chat.messages[chat.messages.length - 1].message);
+ 
+         let userdetcont = document.createElement("div");
+         userdetcont.classList.add("user-det-cont");
+         userdetcont.appendChild(username);
+         userdetcont.appendChild(lastmessage);
+         newchatelem.appendChild(user_profile_image);
+         newchatelem.appendChild(userdetcont);
+         chatList.appendChild(newchatelem);
+     });
+ 
+     
+ });
 
 function check_chat_status(){
     let noMessagesSpace = document.querySelector(".no-messages-space")
@@ -113,6 +123,11 @@ function check_chat_status(){
     else{
         noMessagesSpace.style.display = "flex"
         chatMessagesSpace.style.display = "none"
+    }
+    if (window.innerWidth <= 500) {
+          if(!selectedchat){
+               noMessagesSpace.style.display = "none"
+          }
     }
 }
 
@@ -132,6 +147,20 @@ function remove_selected_chat(){
     userName.innerHTML = ""
     statusText.innerHTML = ""
     statusColor.style.backgroundColor = "darkgray"
+     // When back button is clicked, show .all-messages and hide .chat-space on small screens
+     if (window.innerWidth <= 500) {
+          chatSpace.style.display = "none";
+          allMessages.style.display = "block";
+          selectedchat = undefined
+     check_chat_status()
+     const userName = document.querySelector(".user-name")
+     const statusText = document.querySelector(".status-text")
+     const statusColor = document.querySelector(".status-color")
+
+     userName.innerHTML = ""
+     statusText.innerHTML = ""
+     statusColor.style.backgroundColor = "darkgray"
+     }
 }
 
 function send_message(){
