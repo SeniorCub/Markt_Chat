@@ -149,17 +149,14 @@ function remove_selected_chat(){
     statusColor.style.backgroundColor = "darkgray"
      // When back button is clicked, show .all-messages and hide .chat-space on small screens
      if (window.innerWidth <= 500) {
-          chatSpace.style.display = "none";
-          allMessages.style.display = "block";
           selectedchat = undefined
-     check_chat_status()
-     const userName = document.querySelector(".user-name")
-     const statusText = document.querySelector(".status-text")
-     const statusColor = document.querySelector(".status-color")
-
-     userName.innerHTML = ""
-     statusText.innerHTML = ""
-     statusColor.style.backgroundColor = "darkgray"
+          check_chat_status()
+          const chatSpaceHeader = document.querySelector(".chat-space-header").style.display= "none";
+          const userName = document.querySelector(".user-name").style.display= "none";
+          const statusText = document.querySelector(".status-text").style.display= "none";
+          const statusColor = document.querySelector(".status-color").style.display= "none";
+          const allMessages = document.querySelector(".all-messages").style.display = "block";
+          const chatSpace = document.querySelector(".chat-space").style.display = "none";
      }
 }
 
@@ -292,6 +289,104 @@ let chats = [{
     ]
 },
 {
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
+    user_id:"nathan",user_name:"nathan",user_profile_image:"./Chat/avatar-nathan-peterson.webp",user_type:"buyer",status:"online",
+    messages:[
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"courterrr"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"nathan",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"nathan",status:"read",send_date_and_time:"00:04",message:"hello"},
+    ]
+},
+{
     user_id:"rizky",user_name:"rizky",user_profile_image:"./Chat/avatar-rizky-hasanuddin.webp",user_type:"buyer",status:"online",
     messages:[
         {sent_to:"rizky",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
@@ -306,3 +401,30 @@ let chats = [{
     ]
 }]
 
+
+function startCall() {
+     let callcontainer = document.querySelector("#cameraContainer")
+     let noMessagesSpace = document.querySelector(".no-messages-space")
+     let chatMessagesSpace = document.querySelector(".chat-messages-space")
+     noMessagesSpace.style.display = "none"
+     chatMessagesSpace.style.display = "none"
+     callcontainer.style.display= "Block"
+}
+function endCall() {
+     let callcontainer = document.querySelector("#cameraContainer")
+     let noMessagesSpace = document.querySelector(".no-messages-space")
+     let chatMessagesSpace = document.querySelector(".chat-messages-space")
+     noMessagesSpace.style.display = "flex"
+     chatMessagesSpace.style.display = "none"
+     callcontainer.style.display= "none"
+     if (window.innerWidth <= 500) {
+          selectedchat = undefined
+          check_chat_status()
+          const chatSpaceHeader = document.querySelector(".chat-space-header").style.display= "none";
+          const userName = document.querySelector(".user-name").style.display= "none";
+          const statusText = document.querySelector(".status-text").style.display= "none";
+          const statusColor = document.querySelector(".status-color").style.display= "none";
+          const allMessages = document.querySelector(".all-messages").style.display = "block";
+          const chatSpace = document.querySelector(".chat-space").style.display = "none";
+     }
+}
