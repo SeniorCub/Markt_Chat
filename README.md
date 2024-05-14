@@ -24,3 +24,4 @@ To get started with Markt_Chat, feel free to clone this repository and explore t
 Your marketplace experience is about to get more dynamic and interactive than ever. Welcome to Markt_Chat – Where negotiation meets innovation.
 
 #### Implementing Video and Voice Call
+Make research on daily.co and implement 
