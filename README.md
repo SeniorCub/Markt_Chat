@@ -22,3 +22,5 @@ Join us on this exciting journey to reinvent online marketplaces. Feel free to c
 To get started with Markt_Chat, feel free to clone this repository and explore the codebase. We welcome contributors, feedback, and collaboration from developers, designers, and marketplace enthusiasts.
 
 Your marketplace experience is about to get more dynamic and interactive than ever. Welcome to Markt_Chat – Where negotiation meets innovation.
+
+#### Implementing Video and Voice Call
