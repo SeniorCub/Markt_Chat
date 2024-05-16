@@ -224,6 +224,8 @@ let chats = [{
         {sent_to:"anna",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"anna",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"anna",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"anna",status:"read",send_date_and_time:"00:04",message:"hello"},
+        {sent_to:"you",sent_from:"anna",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"anna",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
         {sent_to:"you",sent_from:"anna",status:"read",send_date_and_time:"00:04",message:"courterrr"},
         {sent_to:"anna",sent_from:"you",status:"read",send_date_and_time:"00:04",message:"hello"},
